@@ -4,8 +4,15 @@ import (
 	"regexp"
 )
 
-// IsValidLogin ...
+// IsValidLogin checks if the given string is a valid login.
+//
+// It returns true if the string is a valid login, false otherwise.
+//
+// Note: This function does not check if the login is already in use.
 func IsValidLogin(login string) bool {
-	r := regexp.MustCompile(`^[a-zA-Z][a-zA-Z0-9_]{5,29}$`)
+	if len(login) < 3 {
+		return false
+	}
+	r := regexp.MustCompile("^[a-zA-Z0-9_]+$")
 	return r.MatchString(login)
 }
