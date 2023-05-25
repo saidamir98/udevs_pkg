@@ -14,7 +14,6 @@ import (
 func IsValidUUID(u string) bool {
 	_, err := uuid.Parse(u)
 	if err != nil {
-		fmt.Println(err)
 		return false
 	}
 	return true
