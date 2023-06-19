@@ -1,8 +1,6 @@
 package util
 
 import (
-	"fmt"
-
 	"github.com/google/uuid"
 )
 
@@ -13,8 +11,6 @@ import (
 // Note: This function does not check if the UUID is already in use.
 func IsValidUUID(u string) bool {
 	_, err := uuid.Parse(u)
-	if err != nil {
-		return false
-	}
-	return true
+
+	return err == nil
 }
